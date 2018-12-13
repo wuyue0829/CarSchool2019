@@ -1,0 +1,10 @@
+<resources>
+    <string name="ip">http://v.juhe.cn/</string>
+    <string name="app_name">安妍驾考</string>
+
+    <string name="login_phone">请输入手机号码</string>
+    <string name="login_password">请输入密码</string>
+    <string name="login_regist">注册</string>
+    <string name="login_loginstr">登录</string>
+    <string name="login_forget_password">忘记密码？</string>
+</resources>

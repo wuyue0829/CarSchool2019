@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="800px"
+        android:background="@mipmap/pic_bann">
+
+        
+        <RelativeLayout
+            android:layout_width="30dp"
+            android:layout_height="45dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_back"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="60sp"
+            android:text="45"
+            android:id="@+id/tv_num"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="45dp"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/tv_qk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_num"
+            android:layout_centerHorizontal="true"
+            android:text="本次做题情况"
+            android:layout_marginTop="10dp"
+            android:textSize="22sp"
+            android:textColor="@color/white" />
+        
+        
+        
+        <LinearLayout
+            android:layout_below="@+id/tv_qk"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent">
+
+
+                <TextView
+                    android:id="@+id/tv_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="00:30:00"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:layout_centerHorizontal="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_time"
+                    android:layout_centerHorizontal="true"
+                    android:text="做题用时"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent">
+
+
+                <TextView
+                    android:id="@+id/tv_zhengquelv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="00:30:00"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:layout_centerHorizontal="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_zhengquelv"
+                    android:layout_centerHorizontal="true"
+                    android:text="正确率"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_ckct"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="30dp"/>
+
+
+        
+    </RelativeLayout>
+
+</LinearLayout>

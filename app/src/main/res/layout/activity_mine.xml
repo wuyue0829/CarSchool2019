@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/pic_mine">
+
+        <RelativeLayout
+            android:layout_marginTop="15dp"
+            android:id="@+id/rl_head"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <RelativeLayout
+                android:id="@+id/rl_return"
+                android:layout_width="40dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_back"
+                    android:layout_centerInParent="true"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="个人中心"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:layout_centerInParent="true"/>
+
+
+            <RelativeLayout
+                android:id="@+id/rl_login_out"
+                android:layout_width="40dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_tuichu"
+                    android:layout_centerInParent="true"/>
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/im_head"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_below="@+id/rl_head"
+            android:src="@mipmap/touxiang"
+            android:layout_centerHorizontal="true"
+            app:civ_border_width="2dp"
+            app:civ_border_color="#ffffff"/>
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="张三"
+            android:textSize="18sp"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/im_head"
+            android:textColor="@color/white"/>
+        
+        
+        <LinearLayout
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/tv_schoolName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/pic_yjjx"
+                android:layout_marginRight="5dp"
+                android:text="华政驾校"
+                android:textSize="11sp"
+                android:gravity="center"
+                android:textColor="#1C86EE"/>
+
+
+            <TextView
+                android:id="@+id/tv_typeName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/pic_yjjx"
+                android:layout_marginLeft="5dp"
+                android:textSize="11sp"
+                android:gravity="center"
+                android:textColor="#1C86EE"
+                android:text="出租车"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dp">
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/pic_xk">
+
+            <LinearLayout
+                android:id="@+id/ly_one"
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                
+                
+                <ImageView
+                    android:id="@+id/im_shouchang"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@mipmap/pic_sctk"/>
+
+                <ImageView
+                    android:id="@+id/im_cuoti"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@mipmap/pic__cttk"/>
+
+                <ImageView
+                    android:id="@+id/im_record"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@mipmap/pic_dtjl"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_below="@+id/ly_one"
+                android:layout_marginTop="60dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <ImageView
+                    android:id="@+id/im_mine"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@mipmap/pic_grxx"/>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/pic_bottom"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+
+
+
+</LinearLayout>

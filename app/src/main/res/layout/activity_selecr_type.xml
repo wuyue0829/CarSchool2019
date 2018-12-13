@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/pic_top">
+
+
+        <RelativeLayout
+            android:id="@+id/rl_return"
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_back"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="选择车型题库"
+            android:textColor="@color/white"
+            android:textSize="20sp"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ly_one"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/im_huoche"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@mipmap/pic_hc"/>
+
+        <ImageView
+            android:id="@+id/im_chuzuche"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@mipmap/pic_czc"/>
+
+        <ImageView
+            android:id="@+id/im_keyun"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@mipmap/pic_ky"/>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+
+        android:id="@+id/ly_fufei_one"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="wrap_content">
+
+
+        <Button
+            android:id="@+id/bt_huoche_fufei"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="20dp"
+            android:background="@drawable/selector_start_question"
+            android:layout_margin="@dimen/dp_20"
+            android:text="付费"
+            android:textSize="12sp"
+            android:textColor="@color/white_ffffff"/>
+
+        <Button
+            android:id="@+id/bt_chuzuche_fufei"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="20dp"
+            android:background="@drawable/selector_start_question"
+            android:layout_margin="@dimen/dp_20"
+            android:text="付费"
+            android:textSize="12sp"
+            android:textColor="@color/white_ffffff"/>
+
+        <Button
+            android:id="@+id/bt_keyun_fufei"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="20dp"
+            android:background="@drawable/selector_start_question"
+            android:layout_margin="@dimen/dp_20"
+            android:text="付费"
+            android:textSize="12sp"
+            android:textColor="@color/white_ffffff"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/im_yayun"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@mipmap/pic_yy"/>
+
+        <ImageView
+            android:id="@+id/im_weihuo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@mipmap/pic_wx"/>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/ly_fufei_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <Button
+            android:id="@+id/bt_yayun_fufei"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="20dp"
+            android:background="@drawable/selector_start_question"
+            android:layout_margin="@dimen/dp_20"
+            android:text="付费"
+            android:textSize="12sp"
+            android:textColor="@color/white_ffffff"/>
+
+        <Button
+            android:id="@+id/bt_weihuo_fufei"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="20dp"
+            android:background="@drawable/selector_start_question"
+            android:layout_margin="@dimen/dp_20"
+            android:text="付费"
+            android:textSize="12sp"
+            android:textColor="@color/white_ffffff"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="20dp"
+            android:visibility="invisible"
+            android:background="@drawable/selector_start_question"
+            android:layout_margin="@dimen/dp_20"
+            android:text="付费"
+            android:textSize="12sp"
+            android:textColor="@color/white_ffffff"/>
+    </LinearLayout>
+
+
+</LinearLayout>
