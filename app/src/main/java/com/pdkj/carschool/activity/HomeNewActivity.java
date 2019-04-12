@@ -1,5 +1,6 @@
 package com.pdkj.carschool.activity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -19,6 +20,7 @@ import com.pdkj.carschool.utils.ToastUtil;
 
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.listener.GetListener;
+import crossoverone.statuslib.StatusUtil;
 import util.UpdateAppUtils;
 
 public class HomeNewActivity extends BaseActivity implements View.OnClickListener {
@@ -47,6 +49,8 @@ public class HomeNewActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     protected void initData(Bundle savedInstanceState) {
+        StatusUtil.setUseStatusBarColor(this, Color.TRANSPARENT, Color.parseColor("#33000000"));
+        StatusUtil.setSystemStatus(this, true, true);
         rl_return = findViewById(R.id.rl_return);
         im_huoche = findViewById(R.id.im_huoche);
         im_chuzuche = findViewById(R.id.im_chuzuche);

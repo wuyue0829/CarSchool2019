@@ -18,13 +18,14 @@ public class QuestionsBean implements Serializable {
     private String item3;//答案 3
     private String item4;//答案 4
     private String question;//问题
-        private String type;// 1 单选 2 判断 3 多选
+    private String type;// 1 单选 2 判断 3 多选
     private String url;
     private String myAnswer;
     private String categoryId;
     private String examTypeId;
     private String time;
     private String categoryType;
+    private String isScene;
 
     @Override
     public String toString() {
@@ -44,6 +45,7 @@ public class QuestionsBean implements Serializable {
                 ", categoryId='" + categoryId + '\'' +
                 ", examTypeId='" + examTypeId + '\'' +
                 ", categoryType='" + categoryType + '\'' +
+                ", isScene='" + isScene + '\'' +
                 '}';
     }
 
@@ -167,6 +169,14 @@ public class QuestionsBean implements Serializable {
         this.categoryType = categoryType;
     }
 
+    public String getIsScene() {
+        return isScene;
+    }
+
+    public void setIsScene(String isScene) {
+        this.isScene = isScene;
+    }
+
     public QuestionsBean() {
     }
 
@@ -185,6 +195,7 @@ public class QuestionsBean implements Serializable {
         values.put(QuestionsMetaData.MetaData.URL,bean.getUrl());
         values.put(QuestionsMetaData.MetaData.EXAMTYPEID,bean.getExamTypeId());
         values.put(QuestionsMetaData.MetaData.CATEGORYTYPE,bean.getCategoryType());
+        values.put(QuestionsMetaData.MetaData.ISSCENE,bean.getIsScene());
         return values;
     }
 
@@ -205,6 +216,7 @@ public class QuestionsBean implements Serializable {
         values.put(QuestionsMetaData.MetaData.URL,bean.getUrl());
         values.put(QuestionsMetaData.MetaData.EXAMTYPEID,examTypeId);
         values.put(QuestionsMetaData.MetaData.CATEGORYTYPE,bean.getCategoryType());
+        values.put(QuestionsMetaData.MetaData.ISSCENE,bean.getIsScene());
         return values;
     }
 
@@ -222,6 +234,7 @@ public class QuestionsBean implements Serializable {
         int categoryId = cursor.getColumnIndex(QuestionsMetaData.MetaData.CATEGORYID);
         int examTypeId = cursor.getColumnIndex(QuestionsMetaData.MetaData.EXAMTYPEID);
         int categoryType = cursor.getColumnIndex(QuestionsMetaData.MetaData.CATEGORYTYPE);
+        int isScene = cursor.getColumnIndex(QuestionsMetaData.MetaData.ISSCENE);
         QuestionsBean bean = new QuestionsBean();
         bean.setId(cursor.getString(idColumn));
         bean.setAnswer(cursor.getString(answerColumn));
@@ -236,6 +249,7 @@ public class QuestionsBean implements Serializable {
         bean.setCategoryId(cursor.getString(categoryId));
         bean.setExamTypeId(cursor.getString(examTypeId));
         bean.setCategoryType(cursor.getString(categoryType));
+        bean.setIsScene(cursor.getString(isScene));
 //        MyLog.i("数据>>>>"+bean.toString());
         return bean;
     }
@@ -255,6 +269,7 @@ public class QuestionsBean implements Serializable {
         int categoryId = cursor.getColumnIndex(QuestionsMetaData.MetaData.CATEGORYID);
         int examTypeId = cursor.getColumnIndex(QuestionsMetaData.MetaData.EXAMTYPEID);
         int categoryType = cursor.getColumnIndex(QuestionsMetaData.MetaData.CATEGORYTYPE);
+        int isScene = cursor.getColumnIndex(QuestionsMetaData.MetaData.ISSCENE);
         QuestionsBean bean = new QuestionsBean();
         bean.setId(cursor.getString(idColumn));
         bean.setAnswer(cursor.getString(answerColumn));
@@ -270,6 +285,7 @@ public class QuestionsBean implements Serializable {
         bean.setMyAnswer(cursor.getString(myAnswerColumn));
         bean.setExamTypeId(cursor.getString(examTypeId));
         bean.setCategoryType(cursor.getString(categoryType));
+        bean.setIsScene(cursor.getString(isScene));
         return bean;
     }
 }

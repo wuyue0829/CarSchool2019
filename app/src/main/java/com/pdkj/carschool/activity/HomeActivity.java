@@ -38,8 +38,6 @@ import org.xutils.x;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.bmob.v3.BmobQuery;
-import cn.bmob.v3.listener.GetListener;
 import crossoverone.statuslib.StatusUtil;
 
 import static org.xutils.common.util.LogUtil.e;
@@ -57,7 +55,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private Handler mHandler = new BaseHandler(this) {
         @Override
         protected void handleMessage(Context mContext, Message msg) {
-            StyledDialog.dismissLoading(mActivity);
+            StyledDialog.dismissLoading();
         }
     };
 
@@ -153,11 +151,13 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                                     DbManager db = x.getDb(PDApplication.getDaoConfig());
                                     List<Qustion> qustionList = new ArrayList<>();
                                     for(Qustion qustion:qustionBean.getData()){
+
                                         Qustion qustion1 = new Qustion();
                                         qustion1.setAnswer(qustion.getAnswer());
                                         qustion1.setCategoryId(qustion.getCategoryId());
                                         qustion1.setExamTypeId(qustion.getExamTypeId());
                                         qustion1.setId(qustion.getId());
+                                        qustion1.setScene(qustion.isScene());
                                         qustion1.setQuestion(qustion.getQuestion());
                                         qustion1.setQuestionType(qustion.getQuestionType());
                                         qustion1.setRemark(qustion.getRemark());
@@ -203,7 +203,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                                             }else{
                                                 db.save(qustion);
                                             }
-                                            LogUtil.e("成功添加一条数据");
                                         }
                                     } catch (DbException e) {
                                         e.printStackTrace();
@@ -230,7 +229,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
                     @Override
                     public void onFinished() {
-                        StyledDialog.dismissLoading(mActivity);
+                        StyledDialog.dismissLoading();
                     }
                 });
             }

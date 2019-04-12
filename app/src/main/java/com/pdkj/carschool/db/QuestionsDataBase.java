@@ -22,6 +22,7 @@ public class QuestionsDataBase extends SQLiteOpenHelper {
             +QuestionsMetaData.MetaData.EXAMTYPEID +" text  ,"
             +QuestionsMetaData.MetaData.CATEGORYID +" text ,"
             +QuestionsMetaData.MetaData.CATEGORYTYPE +" text ,"
+            +QuestionsMetaData.MetaData.ISSCENE +" text ,"
             +QuestionsMetaData.MetaData.URL +")";
 
     private static final String createTableName7 ="CREATE TABLE IF NOT EXISTS "+QuestionsMetaData.MetaData.TABLE_NAME_SUBJECT2+
@@ -37,6 +38,7 @@ public class QuestionsDataBase extends SQLiteOpenHelper {
             +QuestionsMetaData.MetaData.CATEGORYID +" text  ,"
             +QuestionsMetaData.MetaData.EXAMTYPEID +" text  ,"
             +QuestionsMetaData.MetaData.CATEGORYTYPE +" text ,"
+            +QuestionsMetaData.MetaData.ISSCENE +" text ,"
             +QuestionsMetaData.MetaData.URL +")";
 
 
@@ -53,6 +55,7 @@ public class QuestionsDataBase extends SQLiteOpenHelper {
             +QuestionsMetaData.MetaData.CATEGORYID +" text ,"
             +QuestionsMetaData.MetaData.EXAMTYPEID +" text  ,"
             +QuestionsMetaData.MetaData.CATEGORYTYPE +" text ,"
+            +QuestionsMetaData.MetaData.ISSCENE +" text ,"
             +QuestionsMetaData.MetaData.URL +")";
 
     private static final String createTableName3 ="CREATE TABLE IF NOT EXISTS "+QuestionsMetaData.MetaData.TABLE_NAME_ERROR_SUBJECT1+
@@ -69,6 +72,7 @@ public class QuestionsDataBase extends SQLiteOpenHelper {
             +QuestionsMetaData.MetaData.MYANSWER +" text not null , "
             +QuestionsMetaData.MetaData.CATEGORYID +" text  ,"
             +QuestionsMetaData.MetaData.EXAMTYPEID +" text  ,"
+            +QuestionsMetaData.MetaData.ISSCENE +" text ,"
             +QuestionsMetaData.MetaData.CATEGORYTYPE +" text ,"
             +QuestionsMetaData.MetaData.URL +")";
 
@@ -86,6 +90,7 @@ public class QuestionsDataBase extends SQLiteOpenHelper {
             +QuestionsMetaData.MetaData.MYANSWER +" text not null , "
             +QuestionsMetaData.MetaData.EXAMTYPEID +" text  ,"
             +QuestionsMetaData.MetaData.CATEGORYID +" text  ,"
+            +QuestionsMetaData.MetaData.ISSCENE +" text ,"
             +QuestionsMetaData.MetaData.CATEGORYTYPE +" text ,"
             +QuestionsMetaData.MetaData.URL +")";
 
@@ -103,6 +108,7 @@ public class QuestionsDataBase extends SQLiteOpenHelper {
             +QuestionsMetaData.MetaData.TYPE +" text not null , "
             +QuestionsMetaData.MetaData.CATEGORYID +" text , "
             +QuestionsMetaData.MetaData.EXAMTYPEID +" text  ,"
+            +QuestionsMetaData.MetaData.ISSCENE +" text ,"
             +QuestionsMetaData.MetaData.CATEGORYTYPE +" text ,"
             +QuestionsMetaData.MetaData.URL +")";
 
@@ -117,6 +123,7 @@ public class QuestionsDataBase extends SQLiteOpenHelper {
             +QuestionsMetaData.MetaData.QUESTION+" text not null , "
             +QuestionsMetaData.MetaData.TYPE +" text not null , "
             +QuestionsMetaData.MetaData.CATEGORYID +" text, "
+            +QuestionsMetaData.MetaData.ISSCENE +" text ,"
             +QuestionsMetaData.MetaData.EXAMTYPEID +" text  ,"
             +QuestionsMetaData.MetaData.CATEGORYTYPE +" text ,"
             +QuestionsMetaData.MetaData.URL +")";

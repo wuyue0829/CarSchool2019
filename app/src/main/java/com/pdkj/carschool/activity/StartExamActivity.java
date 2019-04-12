@@ -31,6 +31,7 @@ public class StartExamActivity extends BaseActivity<ActivityStartBinding> {
     private int model3;
     private int model4 = 0;
     private int model5 = 0;
+    private int model6 = 0;
     private int time;
     private int manfen;
     private String name;
@@ -68,9 +69,10 @@ public class StartExamActivity extends BaseActivity<ActivityStartBinding> {
                 tv_time.setText("理论:60分钟\n危险源识别及节能驾驶:30分钟");
                 tv_hege.setText("理论:满分100，80及格\n危险源识别及节能驾驶:满分30，18分及格");
                 if(name.equals("理论")){
-                    model1 = 40;
-                    model2 = 40;
-                    model3 = 10;
+                    model1 = 20;
+                    model2 = 20;
+                    model3 = 25;
+                    model6 = 20;
                     time = 60;
                     manfen = 100;
                     SysConfig.getConfig(mContext).setCustomConfigInt("lastScart",80);
@@ -90,6 +92,7 @@ public class StartExamActivity extends BaseActivity<ActivityStartBinding> {
                     model1 = 40;
                     model2 = 40;
                     model3 = 10;
+                    model6 = 0;
                     time = 60;
                     manfen = 100;
                     SysConfig.getConfig(mContext).setCustomConfigInt("lastScart",80);
@@ -109,6 +112,7 @@ public class StartExamActivity extends BaseActivity<ActivityStartBinding> {
                     model1 = 50;
                     model2 = 50;
                     model3 = 0;
+                    model6 = 0;
                     time = 60;
                     manfen = 100;
                     SysConfig.getConfig(mContext).setCustomConfigInt("lastScart",90);
@@ -116,6 +120,7 @@ public class StartExamActivity extends BaseActivity<ActivityStartBinding> {
                     model1 = 50;
                     model2 = 50;
                     model3 = 0;
+                    model6 = 0;
                     time = 60;
                     manfen = 100;
                     SysConfig.getConfig(mContext).setCustomConfigInt("lastScart",90);
@@ -123,6 +128,7 @@ public class StartExamActivity extends BaseActivity<ActivityStartBinding> {
                     model1 = 50;
                     model2 = 50;
                     model3 = 0;
+                    model6 = 0;
                     time = 60;
                     manfen = 100;
                     SysConfig.getConfig(mContext).setCustomConfigInt("lastScart",90);
@@ -136,6 +142,7 @@ public class StartExamActivity extends BaseActivity<ActivityStartBinding> {
                     model1 = 50;
                     model2 = 50;
                     model3 = 0;
+                    model6 = 0;
                     time = 60;
                     manfen = 100;
                     SysConfig.getConfig(mContext).setCustomConfigInt("lastScart",90);
@@ -143,6 +150,7 @@ public class StartExamActivity extends BaseActivity<ActivityStartBinding> {
                     model1 = 50;
                     model2 = 50;
                     model3 = 0;
+                    model6 = 0;
                     time = 60;
                     manfen = 100;
                     SysConfig.getConfig(mContext).setCustomConfigInt("lastScart",90);
@@ -150,6 +158,7 @@ public class StartExamActivity extends BaseActivity<ActivityStartBinding> {
                     model1 = 50;
                     model2 = 50;
                     model3 = 0;
+                    model6 = 0;
                     time = 60;
                     manfen = 100;
                     SysConfig.getConfig(mContext).setCustomConfigInt("lastScart",90);
@@ -163,6 +172,7 @@ public class StartExamActivity extends BaseActivity<ActivityStartBinding> {
                     model1 = 25;
                     model2 = 25;
                     model3 = 0;
+                    model6 = 0;
                     time = 50;
                     manfen = 50;
                     SysConfig.getConfig(mContext).setCustomConfigInt("lastScart",40);
@@ -170,6 +180,7 @@ public class StartExamActivity extends BaseActivity<ActivityStartBinding> {
                     model1 = 15;
                     model2 = 15;
                     model3 = 0;
+                    model6 = 0;
                     time = 50;
                     manfen = 50;
                     SysConfig.getConfig(mContext).setCustomConfigInt("lastScart",24);
@@ -183,6 +194,7 @@ public class StartExamActivity extends BaseActivity<ActivityStartBinding> {
                     model1 = 25;
                     model2 = 25;
                     model3 = 0;
+                    model6 = 0;
                     time = 50;
                     manfen = 50;
                     SysConfig.getConfig(mContext).setCustomConfigInt("lastScart",40);
@@ -190,6 +202,7 @@ public class StartExamActivity extends BaseActivity<ActivityStartBinding> {
                     model1 = 25;
                     model2 = 25;
                     model3 = 0;
+                    model6 = 0;
                     time = 50;
                     manfen = 50;
                     SysConfig.getConfig(mContext).setCustomConfigInt("lastScart",40);
@@ -202,6 +215,7 @@ public class StartExamActivity extends BaseActivity<ActivityStartBinding> {
                 model1 = 50;
                 model2 = 50;
                 model3 = 0;
+                model6 = 0;
                 time = 60;
                 manfen = 100;
                 SysConfig.getConfig(mContext).setCustomConfigInt("lastScart",80);
@@ -222,6 +236,7 @@ public class StartExamActivity extends BaseActivity<ActivityStartBinding> {
             bundle.putInt("model3",model3);
             bundle.putInt("model4",model4);
             bundle.putInt("model5",model5);
+            bundle.putInt("model6",model6);
             bundle.putInt("time",time);
             bundle.putInt("manfen",manfen);
             bundle.putInt("type", type);

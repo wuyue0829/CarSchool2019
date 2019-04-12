@@ -56,6 +56,6 @@ public class QustionListActivity extends BaseActivity {
         } catch (DbException e) {
             e.printStackTrace();
         }
-        StyledDialog.dismissLoading(this);
+        StyledDialog.dismissLoading();
     }
 }

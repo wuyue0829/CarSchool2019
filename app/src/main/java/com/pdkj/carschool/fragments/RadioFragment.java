@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.pdkj.carschool.R;
 import com.pdkj.carschool.activity.MyCollectionsActivity;
 import com.pdkj.carschool.activity.ShowBigImageActivity;
@@ -72,17 +73,22 @@ public class RadioFragment extends BaseFragment<FragRadioBinding> {
         myAnswer = getArguments().getString("myAnswer");
         lvn_radio_item4 = getView().findViewById(R.id.lvn_radio_item4);
         SpannableString spannable = new SpannableString("   " + bean.getQuestion());
-        MyImageSpan myImageSpan = new MyImageSpan(getActivity(), R.mipmap.radio_img);
-        spannable.setSpan(myImageSpan, 0, 2, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+        if(bean.getIsScene().equals("1")){
+            MyImageSpan myImageSpan = new MyImageSpan(getActivity(), R.mipmap.subject_check_img_meitu_1);
+            spannable.setSpan(myImageSpan, 0, 2, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+        }else{
+            MyImageSpan myImageSpan = new MyImageSpan(getActivity(), R.mipmap.radio_img);
+            spannable.setSpan(myImageSpan, 0, 2, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+        }
         mBinding.tvRadioSubject.setText(spannable);
 
         if (StringUtil.isNotEmpty(bean.getUrl())) {
             if (!bean.getUrl().contains("http://")) {
                 Glide.with(getContext()).load(android.util.Base64.decode(bean.getUrl(), android.util.Base64.DEFAULT))
-                        .asGif().placeholder(R.mipmap.defult_img)
+                        .diskCacheStrategy(DiskCacheStrategy.SOURCE).placeholder(R.mipmap.defult_img)
                         .error(R.mipmap.defult_img).into(mBinding.ivRadioSubject);
             } else {
-                Glide.with(getContext()).load(bean.getUrl()).placeholder(R.mipmap.defult_img)
+                Glide.with(getContext()).load(bean.getUrl()).diskCacheStrategy(DiskCacheStrategy.SOURCE).placeholder(R.mipmap.defult_img)
                         .error(R.mipmap.defult_img).into(mBinding.ivRadioSubject);
             }
         } else {
@@ -318,7 +324,12 @@ public class RadioFragment extends BaseFragment<FragRadioBinding> {
     private void successAdd() {
         if (getActivity() instanceof SubjectActivity) {
             ((SubjectActivity) getActivity()).setSuccessNum(((SubjectActivity) getActivity()).getSuccessNum() + 1);
-            ((SubjectActivity) getActivity()).setSuccessNum1(((SubjectActivity) getActivity()).getSuccessNum1() + 1);
+            if(bean.getIsScene().equals("1")){
+                ((SubjectActivity) getActivity()).setSuccessNum1(((SubjectActivity) getActivity()).getSuccessNum1() + 0.5);
+            }else{
+                ((SubjectActivity) getActivity()).setSuccessNum1(((SubjectActivity) getActivity()).getSuccessNum1() + 1);
+            }
+
             if (((SubjectActivity) getActivity()).getQuestionType() == 1) {
                 toQuestions();
             }

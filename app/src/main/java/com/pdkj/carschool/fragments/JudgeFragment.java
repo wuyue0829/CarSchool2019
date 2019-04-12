@@ -10,6 +10,7 @@ import android.text.style.ForegroundColorSpan;
 import android.view.View;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.pdkj.carschool.R;
 import com.pdkj.carschool.activity.MyCollectionsActivity;
 import com.pdkj.carschool.activity.ShowBigImageActivity;
@@ -60,6 +61,7 @@ public class JudgeFragment extends BaseFragment<FragJudgeBinding> {
         return fragment;
     }
 
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -73,17 +75,24 @@ public class JudgeFragment extends BaseFragment<FragJudgeBinding> {
         myAnswer = getArguments().getString("myAnswer");
 
         SpannableString spannable = new SpannableString("   " + bean.getQuestion());
-        MyImageSpan myImageSpan = new MyImageSpan(getActivity(), R.mipmap.judge_img);
-        spannable.setSpan(myImageSpan, 0, 2, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+
+        if(bean.getIsScene().equals("1")){
+            MyImageSpan myImageSpan = new MyImageSpan(getActivity(), R.mipmap.subject_check_img_meitu_1);
+            spannable.setSpan(myImageSpan, 0, 2, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+        }else{
+            MyImageSpan myImageSpan = new MyImageSpan(getActivity(), R.mipmap.judge_img);
+            spannable.setSpan(myImageSpan, 0, 2, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+        }
         mBinding.tvJudgeSubject.setText(spannable);
 
         if (StringUtil.isNotEmpty(bean.getUrl())) {
             if (!bean.getUrl().contains("http://")) {
                 Glide.with(getContext()).load(android.util.Base64.decode(bean.getUrl(), android.util.Base64.DEFAULT))
-                        .asGif().placeholder(R.mipmap.defult_img)
+                        .placeholder(R.mipmap.defult_img)
                         .error(R.mipmap.defult_img).into(mBinding.ivJudgeSubject);
             } else {
-                Glide.with(getContext()).load(bean.getUrl()).placeholder(R.mipmap.defult_img)
+                Glide.with(getContext()).load(bean.getUrl())
+                        .diskCacheStrategy(DiskCacheStrategy.SOURCE).placeholder(R.mipmap.defult_img)
                         .error(R.mipmap.defult_img).into(mBinding.ivJudgeSubject);
             }
         } else {
@@ -201,7 +210,11 @@ public class JudgeFragment extends BaseFragment<FragJudgeBinding> {
     private void successAdd() {
         if (getActivity() instanceof SubjectActivity) {
             ((SubjectActivity) getActivity()).setSuccessNum(((SubjectActivity) getActivity()).getSuccessNum() + 1);
-            ((SubjectActivity) getActivity()).setSuccessNum3(((SubjectActivity) getActivity()).getSuccessNum3() + 1);
+            if(bean.getIsScene().equals("1")){
+                ((SubjectActivity) getActivity()).setSuccessNum3(((SubjectActivity) getActivity()).getSuccessNum3() + 0.5);
+            }else{
+                ((SubjectActivity) getActivity()).setSuccessNum3(((SubjectActivity) getActivity()).getSuccessNum3() + 1);
+            }
             if (((SubjectActivity) getActivity()).getQuestionType() == 1) {
                 toQuestions();
             }

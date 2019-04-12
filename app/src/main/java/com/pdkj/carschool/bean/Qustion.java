@@ -25,6 +25,9 @@ public class Qustion {
     @Column(name = "item1")
     private String item1;
 
+    @Column(name = "isScene")
+    private String isScene;
+
     @Column(name = "item2")
     private String item2;
 
@@ -183,6 +186,14 @@ public class Qustion {
         public void setOptionName(String optionName) {
             this.optionName = optionName;
         }
+    }
+
+    public String isScene() {
+        return isScene;
+    }
+
+    public void setScene(String scene) {
+        isScene = scene;
     }
 }
 

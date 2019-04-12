@@ -54,6 +54,8 @@ public class QuestionsMetaData {
 
         String CATEGORYTYPE = "categoryType";
 
+        String ISSCENE = "isScene";
+
     }
 
 }

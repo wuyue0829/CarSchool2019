@@ -54,10 +54,12 @@ public class SubjectActivity extends BaseActivity<ActivitySubjectBinding> implem
     private ArrayList<QuestionsBean> dataList;
     private int questionType;
     private int successNum;//对对题数
-    private int successNum1;//单选对题数
-    private int successNum2;//判断对题数
-    private int successNum3;//多选对题数
+    private double successNum1;//单选对题数
+    private double successNum2;//判断对题数
+    private double successNum3;//多选对题数
+    private int successNum4;//图像题对题数
     private int failNum;//错题数
+    private int failNum1;//错题数
     private int noWriteNum;//未做题目
     private int subject1Count = 100;//总题数
     private final int subject4Count = 50;//总题数
@@ -75,6 +77,7 @@ public class SubjectActivity extends BaseActivity<ActivitySubjectBinding> implem
     private int model3;
     private int model4;
     private int model5;
+    private int model6 = 0;
     private int time;
     private int manfen;
     private DbManager db = x.getDb(PDApplication.getDaoConfig());
@@ -142,8 +145,9 @@ public class SubjectActivity extends BaseActivity<ActivitySubjectBinding> implem
                 List<Qustion> persons1 = new ArrayList<>();
                 List<Qustion> persons2 = new ArrayList<>();
                 List<Qustion> persons3 = new ArrayList<>();
+                List<Qustion> persons4 = new ArrayList<>();
                 try {
-                    persons1 = db.selector(Qustion.class).where("categoryId", "=", categoryId).and("questionType","=","3").and("examTypeId","=", SharedPreferenceUtils.getStringValue(mContext,"examTypeId")).findAll();
+                    persons1 = db.selector(Qustion.class).where("categoryId", "=", categoryId).and("isScene","=","0").and("questionType","=","3").and("examTypeId","=", SharedPreferenceUtils.getStringValue(mContext,"examTypeId")).findAll();
                 } catch (DbException e) {
                     e.printStackTrace();
                 }
@@ -155,7 +159,7 @@ public class SubjectActivity extends BaseActivity<ActivitySubjectBinding> implem
                 }
 
                 try {
-                    persons2 = db.selector(Qustion.class).where("categoryId", "=", categoryId).and("questionType","=","1").and("examTypeId","=",SharedPreferenceUtils.getStringValue(mContext,"examTypeId")).findAll();
+                    persons2 = db.selector(Qustion.class).where("categoryId", "=", categoryId).and("isScene","=","0").and("questionType","=","1").and("examTypeId","=",SharedPreferenceUtils.getStringValue(mContext,"examTypeId")).findAll();
                 } catch (DbException e) {
                     e.printStackTrace();
                 }
@@ -167,7 +171,7 @@ public class SubjectActivity extends BaseActivity<ActivitySubjectBinding> implem
                     }
                 }
                 try {
-                    persons3 = db.selector(Qustion.class).where("categoryId", "=", categoryId).and("questionType","=","2").and("examTypeId","=",SharedPreferenceUtils.getStringValue(mContext,"examTypeId")).findAll();
+                    persons3 = db.selector(Qustion.class).where("categoryId", "=", categoryId).and("isScene","=","0").and("questionType","=","2").and("examTypeId","=",SharedPreferenceUtils.getStringValue(mContext,"examTypeId")).findAll();
                 } catch (DbException e) {
                     e.printStackTrace();
                 }
@@ -177,6 +181,18 @@ public class SubjectActivity extends BaseActivity<ActivitySubjectBinding> implem
                         persons.add(persons3.get(i));
                     }
                 }
+                try {
+                    persons4 = db.selector(Qustion.class).where("categoryId", "=", categoryId).and("isScene","=","1").and("examTypeId","=",SharedPreferenceUtils.getStringValue(mContext,"examTypeId")).findAll();
+                } catch (DbException e) {
+                    e.printStackTrace();
+                }
+                if(persons4!=null&&persons4.size()>0){
+                    Collections.shuffle(persons4);
+                    for(int i = 0;i < model6;i++){
+                        persons.add(persons4.get(i));
+                    }
+                }
+
             }
         }
 
@@ -193,6 +209,7 @@ public class SubjectActivity extends BaseActivity<ActivitySubjectBinding> implem
             questionsBean.setType(qustion.getQuestionType());
             questionsBean.setUrl(qustion.getUrl());
             questionsBean.setQuestion(qustion.getQuestion());
+            questionsBean.setIsScene(qustion.isScene());
             questionsBean.setExamTypeId(qustion.getExamTypeId());
             questionsBean.setCategoryId(qustion.getCategoryId());
             beenList.add(questionsBean);
@@ -241,6 +258,7 @@ public class SubjectActivity extends BaseActivity<ActivitySubjectBinding> implem
                 MultiselectFragment fragment = MultiselectFragment.newInstance(bean,null);
                 fragmentList.add(fragment);
             }
+
         }
         MyFragmentPagerAdapter adapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), fragmentList);
         mBinding.viewpagerSubject.setAdapter(adapter);
@@ -296,11 +314,12 @@ public class SubjectActivity extends BaseActivity<ActivitySubjectBinding> implem
         model3 = getIntent().getExtras().getInt("model3");
         model4 = getIntent().getExtras().getInt("model4");
         model5 = getIntent().getExtras().getInt("model5");
+        model6 = getIntent().getExtras().getInt("model6");
         lvn_time_subject = findViewById(R.id.lvn_time_subject);
         if(model4>0&&model5>0){
             subject1Count = (model4+model5);
         }else{
-            subject1Count = (model1+model2+model3);
+            subject1Count = (model1+model2+model3+model6);
         }
         time = getIntent().getExtras().getInt("time");
         manfen = getIntent().getExtras().getInt("manfen");
@@ -452,7 +471,7 @@ public class SubjectActivity extends BaseActivity<ActivitySubjectBinding> implem
                                 if(model4>0&&model5>0){
                                     setTitle(R.mipmap.subject_manager_img, newPostion + "/"+(model4+model5), R.mipmap.button_select_subject_img);
                                 }else{
-                                    setTitle(R.mipmap.subject_manager_img, newPostion + "/"+(model1+model2+model3), R.mipmap.button_select_subject_img);
+                                    setTitle(R.mipmap.subject_manager_img, newPostion + "/"+(model1+model2+model3+model6), R.mipmap.button_select_subject_img);
                                 }
 
                             }
@@ -470,7 +489,7 @@ public class SubjectActivity extends BaseActivity<ActivitySubjectBinding> implem
                             if(model4>0&&model5>0){
                                 setTitle(R.mipmap.subject_manager_img, newPostion + "/"+(model4+model5), R.mipmap.button_select_subject_img);
                             }else{
-                                setTitle(R.mipmap.subject_manager_img, newPostion + "/"+(model1+model2+model3), R.mipmap.button_select_subject_img);
+                                setTitle(R.mipmap.subject_manager_img, newPostion + "/"+(model1+model2+model3+model6), R.mipmap.button_select_subject_img);
                             }
                         }
                     } else {
@@ -625,7 +644,7 @@ public class SubjectActivity extends BaseActivity<ActivitySubjectBinding> implem
         if (questionType == 1) {
             noWriteNum --;
             String time = "";
-            int source = 0;
+            double source = 0;
             boolean isOk = false;
             if(model4>0&&model5>0){
                 if (subject1Count == (successNum + failNum)) {
@@ -661,23 +680,24 @@ public class SubjectActivity extends BaseActivity<ActivitySubjectBinding> implem
 
     private void toResult() {
         String time = "";
-        int source = 0;
+        double source = 0;
         time = mBinding.chronometer.getText().toString();
         if (type == 1) {
             source = successNum1 + successNum2*2 + successNum3;
         } else if (type == 2) {
-            source = subject4Count - ((failNum * 2)+ noWriteNum);
+            source = subject4Count - ((failNum * 2)+ noWriteNum );
         }
         Bundle bundle = new Bundle();
         bundle.putInt("subjectType", type);
         bundle.putString("time1", time);
-        bundle.putInt("source", source);
+        bundle.putDouble("source", source);
         bundle.putInt("questionType", 1);// 1 模拟考试 2 章节练习
         bundle.putInt("model1",model1);
         bundle.putInt("model2",model2);
         bundle.putInt("model3",model3);
         bundle.putInt("model4",model4);
         bundle.putInt("model5",model5);
+        bundle.putInt("model6",model6);
         bundle.putInt("time",getIntent().getExtras().getInt("time"));
         bundle.putInt("manfen",manfen);
         bundle.putInt("type", type);
@@ -714,29 +734,30 @@ public class SubjectActivity extends BaseActivity<ActivitySubjectBinding> implem
     }
 
 
-    public int getSuccessNum1() {
+    public double getSuccessNum1() {
         return successNum1;
     }
 
-    public void setSuccessNum1(int successNum1) {
+    public void setSuccessNum1(double successNum1) {
         this.successNum1 = successNum1;
     }
 
-    public int getSuccessNum2() {
+    public double getSuccessNum2() {
         return successNum2;
     }
 
-    public void setSuccessNum2(int successNum2) {
+    public void setSuccessNum2(double successNum2) {
         this.successNum2 = successNum2;
     }
 
-    public int getSuccessNum3() {
+    public double getSuccessNum3() {
         return successNum3;
     }
 
-    public void setSuccessNum3(int successNum3) {
+    public void setSuccessNum3(double successNum3) {
         this.successNum3 = successNum3;
     }
+
 
     @Override
     public void onRadioSelectSubjectSuccess(int success) {

@@ -98,7 +98,7 @@ public class PayActivity extends BaseActivity {
                             }else{
                                 doAlipay(resultParem,new Gson().fromJson(result, LoginBeanCla.class).getMessage());
                             }
-                            StyledDialog.dismissLoading(mActivity);
+                            StyledDialog.dismissLoading();
                         }
 
                         @Override
@@ -113,7 +113,7 @@ public class PayActivity extends BaseActivity {
 
                         @Override
                         public void onFinished() {
-                            StyledDialog.dismissLoading(mActivity);
+                            StyledDialog.dismissLoading();
                         }
                     });
                 }
@@ -130,7 +130,7 @@ public class PayActivity extends BaseActivity {
 
                 @Override
                 public void onFinished() {
-                    StyledDialog.dismissLoading(mActivity);
+                    StyledDialog.dismissLoading();
                 }
             });
         }else{
@@ -151,7 +151,7 @@ public class PayActivity extends BaseActivity {
                     }else{
                         doAlipay(resultParem,new Gson().fromJson(result, LoginBeanCla.class).getMessage());
                     }
-                    StyledDialog.dismissLoading(mActivity);
+                    StyledDialog.dismissLoading();
                 }
 
                 @Override
@@ -166,7 +166,7 @@ public class PayActivity extends BaseActivity {
 
                 @Override
                 public void onFinished() {
-                    StyledDialog.dismissLoading(mActivity);
+                    StyledDialog.dismissLoading();
                 }
             });
         }
@@ -253,7 +253,7 @@ public class PayActivity extends BaseActivity {
 
                     @Override
                     public void onFinished() {
-                        StyledDialog.dismissLoading(mActivity);
+                        StyledDialog.dismissLoading();
                     }
                 });
             }

@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.pdkj.carschool.R;
 import com.pdkj.carschool.activity.MyCollectionsActivity;
 import com.pdkj.carschool.activity.ShowBigImageActivity;
@@ -83,18 +84,24 @@ public class MultiselectFragment extends BaseFragment<FragMultiselectBinding> {
         myAnswer = getArguments().getString("myAnswer");
 
         SpannableString spannable = new SpannableString("   " + bean.getQuestion());
-        MyImageSpan myImageSpan = new MyImageSpan(getActivity(), R.mipmap.subject_check_img);
-        spannable.setSpan(myImageSpan, 0, 2, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+        if(bean.getIsScene().equals("1")){
+            MyImageSpan myImageSpan = new MyImageSpan(getActivity(), R.mipmap.subject_check_img_meitu_1);
+            spannable.setSpan(myImageSpan, 0, 2, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+        }else{
+            MyImageSpan myImageSpan = new MyImageSpan(getActivity(), R.mipmap.subject_check_img);
+            spannable.setSpan(myImageSpan, 0, 2, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+        }
         mBinding.tvMultSubject.setText(spannable);
         lvn_mult_item4 = getView().findViewById(R.id.lvn_mult_item4);
 
         if (StringUtil.isNotEmpty(bean.getUrl())) {
             if (!bean.getUrl().contains("http://")) {
                 Glide.with(getContext()).load(android.util.Base64.decode(bean.getUrl(), android.util.Base64.DEFAULT))
-                        .asGif().placeholder(R.mipmap.defult_img)
+                        .diskCacheStrategy(DiskCacheStrategy.SOURCE).placeholder(R.mipmap.defult_img)
                         .error(R.mipmap.defult_img).into(mBinding.ivMultSubject);
             } else {
-                Glide.with(getContext()).load(bean.getUrl()).placeholder(R.mipmap.defult_img)
+                Glide.with(getContext()).load(bean.getUrl()).
+                        diskCacheStrategy(DiskCacheStrategy.SOURCE).placeholder(R.mipmap.defult_img)
                         .error(R.mipmap.defult_img).into(mBinding.ivMultSubject);
             }
         } else {
@@ -427,7 +434,11 @@ public class MultiselectFragment extends BaseFragment<FragMultiselectBinding> {
     private void successAdd() {
         if (getActivity() instanceof SubjectActivity) {
             ((SubjectActivity) getActivity()).setSuccessNum(((SubjectActivity) getActivity()).getSuccessNum() + 1);
-            ((SubjectActivity) getActivity()).setSuccessNum2(((SubjectActivity) getActivity()).getSuccessNum2() + 1);
+            if(bean.getIsScene().equals("1")){
+                ((SubjectActivity) getActivity()).setSuccessNum2(((SubjectActivity) getActivity()).getSuccessNum2() + 0.5);
+            }else{
+                ((SubjectActivity) getActivity()).setSuccessNum2(((SubjectActivity) getActivity()).getSuccessNum2() + 1);
+            }
             if (((SubjectActivity) getActivity()).getQuestionType() == 1) {
                 toQuestions();
             }

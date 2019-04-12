@@ -112,7 +112,7 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
 
             @Override
             public void onFinished() {
-                StyledDialog.dismissLoading(mActivity);
+                StyledDialog.dismissLoading();
             }
         });
     }
@@ -151,7 +151,7 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
 
             @Override
             public void onFinished() {
-                StyledDialog.dismissLoading(mActivity);
+                StyledDialog.dismissLoading();
             }
         });
     }

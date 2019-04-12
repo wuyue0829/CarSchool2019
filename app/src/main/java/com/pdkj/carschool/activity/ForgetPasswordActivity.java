@@ -119,7 +119,7 @@ public class ForgetPasswordActivity extends BaseActivity implements View.OnClick
 
             @Override
             public void onFinished() {
-                StyledDialog.dismissLoading(mActivity);
+                StyledDialog.dismissLoading();
             }
         });
     }
@@ -173,7 +173,7 @@ public class ForgetPasswordActivity extends BaseActivity implements View.OnClick
 
             @Override
             public void onFinished() {
-                StyledDialog.dismissLoading(mActivity);
+                StyledDialog.dismissLoading();
             }
         });
     }

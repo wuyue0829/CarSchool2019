@@ -22,7 +22,7 @@ public class ResultActivity extends BaseActivity<ActivityResultBinding> {
 
     private String time;
     private int type;
-    private int source;
+    private double source;
     private TextView tv_car_type_result;
     private TextView tv_to_subject;
 
@@ -37,7 +37,7 @@ public class ResultActivity extends BaseActivity<ActivityResultBinding> {
         Bundle bundle = getIntent().getExtras();
         time = bundle.getString("time1");
         type = bundle.getInt("subjectType");
-        source = bundle.getInt("source");
+        source = bundle.getDouble("source");
         tv_car_type_result = findViewById(R.id.tv_car_type_result);
         tv_to_subject = findViewById(R.id.tv_to_subject);
         setTitle("考试结果");
@@ -106,6 +106,7 @@ public class ResultActivity extends BaseActivity<ActivityResultBinding> {
             bundle.putInt("model3",getIntent().getExtras().getInt("model3"));
             bundle.putInt("model4",getIntent().getExtras().getInt("model4"));
             bundle.putInt("model5",getIntent().getExtras().getInt("model5"));
+            bundle.putInt("model6",getIntent().getExtras().getInt("model6"));
             bundle.putInt("time",getIntent().getExtras().getInt("time"));
             bundle.putInt("manfen",getIntent().getExtras().getInt("manfen"));
             bundle.putString("mId", getIntent().getExtras().getString("mId"));
