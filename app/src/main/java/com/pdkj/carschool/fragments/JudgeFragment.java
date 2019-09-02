@@ -262,9 +262,9 @@ public class JudgeFragment extends BaseFragment<FragJudgeBinding> {
     }
 
     private String caseString(String caseStr) {
-        if (StringUtil.isEqual(caseStr, "正确")) {
+        if (StringUtil.isEqual(caseStr, "正确") ||StringUtil.isEqual(caseStr, "对") ) {
             return "1";
-        } else if (StringUtil.isEqual(caseStr, "错误")) {
+        } else if (StringUtil.isEqual(caseStr, "错误") || StringUtil.isEqual(caseStr, "错")) {
             return "2";
         }
         return "";

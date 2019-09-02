@@ -68,7 +68,7 @@ public class StartExamActivity extends BaseActivity<ActivityStartBinding> {
                 tv_car_type.setText(MineActivity.ExamTypeId.普货资格证.toString());
                 tv_time.setText("理论:60分钟\n危险源识别及节能驾驶:30分钟");
                 tv_hege.setText("理论:满分100，80及格\n危险源识别及节能驾驶:满分30，18分及格");
-                if(name.equals("理论")){
+                if(name.equals("理论") || name.equals("理论,")){
                     model1 = 20;
                     model2 = 20;
                     model3 = 25;
@@ -88,7 +88,7 @@ public class StartExamActivity extends BaseActivity<ActivityStartBinding> {
                 tv_car_type.setText(MineActivity.ExamTypeId.客运资格证.toString());
                 tv_time.setText("理论:60分钟\n危险源识别及节能驾驶:30分钟");
                 tv_hege.setText("理论:满分100，80及格\n危险源识别及节能驾驶:满分30，18分及格");
-                if(name.equals("理论")){
+                if(name.equals("理论") || name.equals("理论,")){
                     model1 = 40;
                     model2 = 40;
                     model3 = 10;

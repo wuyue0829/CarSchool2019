@@ -139,6 +139,8 @@ public class SubjectActivity extends BaseActivity<ActivitySubjectBinding> implem
                         persons.add(persons2.get(i));
                     }
                 }
+
+
             }else{
                 lvn_time_subject.setVisibility(View.VISIBLE);
                 mBinding.chronometer.start();
@@ -195,7 +197,6 @@ public class SubjectActivity extends BaseActivity<ActivitySubjectBinding> implem
 
             }
         }
-
 
         for(Qustion qustion:persons){
             QuestionsBean questionsBean = new QuestionsBean();
